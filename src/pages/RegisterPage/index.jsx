@@ -64,8 +64,8 @@ export function RegisterPage(){
 
 
             <label htmlFor="confirmPassword" className="areaLabel">Confirmar Senha</label>
-            <input type="confirmPassword" placeholder="Confirme sua senha" className="areaInput" {...register("password")}/>
-            {errors.password && <p className="areaError">{errors.password.message}</p>}
+            <input type="password" placeholder="Confirme sua senha" className="areaInput" {...register("confirmPassword")}/>
+            {errors.confirmPassword && <p className="areaError">{errors.confirmPassword.message}</p>}
 
             <label htmlFor="bio" className="areaLabel">Bio</label>
             <input type="bio" placeholder="Fale sobre você" className="areaInput" {...register("bio")}/>
