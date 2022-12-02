@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 export function LoginPage(){
 
     const navigate = useNavigate()
-    function handleClick() {
+    function goRegisterClick() {
         navigate('/register')
       }
 
@@ -23,6 +23,7 @@ export function LoginPage(){
         resolver: yupResolver(loginSchema),
         
     })
+
 function submit(data){
     reset()
     console.log(data)
@@ -48,7 +49,7 @@ function submit(data){
         </form>
 
         <p className="messageLogin">Ainda não possui uma conta?</p>
-        <button type="button" className="btGoRegister" onClick={handleClick}>Cadastre-se</button>
+        <button type="button" className="btGoRegister" onClick={goRegisterClick}>Cadastre-se</button>
 
         </div>
 

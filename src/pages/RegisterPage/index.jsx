@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 export function RegisterPage(){
 
     const navigate = useNavigate()
-    function handleClick() {
+    function goLoginClick() {
         navigate("/")
       }
 
@@ -27,16 +27,20 @@ export function RegisterPage(){
             resolver: yupResolver(registerSchema),
             
         })
-    function submit(data){
-        reset()
+   
+    async function submit(data){
         console.log(data)
+        const information = {...data}
+        delete information.passwordConfirm
+        // await NewRegister(information)
+        reset()
     }
     return(
         <StyledRegisterPage>
 
             <Header>
             <img src={logoKenzieHub} alt="logo da Kenzie Hub" className="logoKenziHub"/>
-            <button className="btComeBackLogin" onClick={handleClick}>Voltar</button>
+            <button className="btComeBackLogin" onClick={goLoginClick}>Voltar</button>
             </Header>
 
        <div className="areaRegister">
@@ -59,8 +63,8 @@ export function RegisterPage(){
             {errors.password && <p className="areaError">{errors.password.message}</p>}
 
 
-            <label htmlFor="password" className="areaLabel">Confirmar Senha</label>
-            <input type="password" placeholder="Confirme sua senha" className="areaInput" {...register("password")}/>
+            <label htmlFor="confirmPassword" className="areaLabel">Confirmar Senha</label>
+            <input type="confirmPassword" placeholder="Confirme sua senha" className="areaInput" {...register("password")}/>
             {errors.password && <p className="areaError">{errors.password.message}</p>}
 
             <label htmlFor="bio" className="areaLabel">Bio</label>
@@ -71,15 +75,15 @@ export function RegisterPage(){
             <input type="contact" placeholder="Opção de contato" className="areaInput" {...register("contact")}/>
             {errors.contact && <p className="areaError">{errors.contact.message}</p>}
 
-            <label htmlFor="course-module" className="areaLabel">Selecionar Módulo</label>
-           <select name="course-module" id="course-module" className="areaInput" {...register("course-module")}>
+            <label htmlFor="course_module" className="areaLabel">Selecionar Módulo</label>
+           <select name="course_module" id="course_module" className="areaInput" {...register("course_module")}>
             <option value="">Selecione</option>
-            <option value="">Primeiro módulo (Introdução ao Frontend)</option>
-            <option value="">Segundo módulo (Frontend Avançado)</option>
-            <option value="">Terceiro módulo (Introdução ao Backend)</option>
-            <option value="">Quarto módulo (Backend Avançado)</option>
+            <option value="primeiro_modulo">Primeiro módulo (Introdução ao Frontend)</option>
+            <option value="segundo_modulo">Segundo módulo (Frontend Avançado)</option>
+            <option value="terceiro_modulo">Terceiro módulo (Introdução ao Backend)</option>
+            <option value="quarto_modulo">Quarto módulo (Backend Avançado)</option>
            </select>
-           {/* {errors.courseModule && <p className="areaError">{errors.courseModule.message}</p>} */}
+           {errors.course_module && <p className="areaError">{errors.course_module.message}</p>}
 
             <button type="submit" className="btRegister">Cadastrar</button>
         </form>

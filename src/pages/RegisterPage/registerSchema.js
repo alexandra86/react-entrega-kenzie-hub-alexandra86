@@ -7,9 +7,12 @@ export const registerSchema = yup.object().shape({
        .min(3, "O nome precisa ter pelo 3 caracteres.")
        .max(200, "O nome pode ter no máximo 200 caracteres."),
 
-    email: yup.string().required("O email é obrigatório").email("É necessário fornecer um email."),
+   email: yup
+      .string()
+      .required("O email é obrigatório")
+      .email("É necessário fornecer um email."),
 
-    password: yup
+   password: yup
        .string()
        .required("A senha obrigatória")
        .matches(/(?=.*?[A-Z])/, "É necessário uma letra maiúscula.")
@@ -18,10 +21,20 @@ export const registerSchema = yup.object().shape({
        .matches(/(?=.*?[#?!@$%^&*-])/, "É necessário pelo menos um caractere especial")
        .min(8, "É necessário uma senha de pelos 8 caracteres"),
 
-       bio: yup.string().required("Campo Obrigatório")
+   confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "Senha não confere!"),
+
+   bio: yup
+       .string()
+       .required("Campo Obrigatório")
        .max(200, "Limite excedido!"),
 
-       contact: yup.string().required("Campo Obrigatório"),
+   contact: yup
+       .string()
+       .required("Campo Obrigatório"),
 
-       courseModule: yup.string().required("Campo Obrigatório")
+   course_module: yup
+       .string()
+       .required("Selecione uma opção")
  });
