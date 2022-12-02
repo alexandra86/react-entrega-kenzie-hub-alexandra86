@@ -137,4 +137,11 @@ export const StyledLoginPage = styled.div`
      margin-bottom: 0.5rem;
     }
 
+    @media(max-width:43.75rem){
+      .areaLogin{
+        width:80%;
+      }
+
+    }
+
 `

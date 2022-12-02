@@ -104,10 +104,22 @@ export const StyledRegisterPage = styled.div`
     }
  
     .areaError{
-      color:red;
-      font-family: 'Inter', sans-serif;
+     color:red;
+     font-family: 'Inter', sans-serif;
      font-weight: 500;
      font-size:0.75rem;
      margin-bottom: 0.5rem;
     }
+    @media(max-width:43.75rem){
+      .logoKenziHub{
+        max-width:6.595625rem;
+        width:100%;
+        height:0.914375rem;
+            
+    }
+    .areaRegister{
+        width:80%;
+    }
+
+  }
 `

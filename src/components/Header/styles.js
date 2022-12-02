@@ -34,4 +34,8 @@ justify-content: space-between;
  background-color:#343B41;
 }
 
+@media(max-width:43.75rem){
+width:80%;
+
+}
 `
