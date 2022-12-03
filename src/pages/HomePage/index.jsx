@@ -9,6 +9,7 @@ export function HomePage({user}){
     function goLoginClick() {
         navigate("/")
         user = null;
+        localStorage.removeItem("@TOKEN");
     }
 
     return(
