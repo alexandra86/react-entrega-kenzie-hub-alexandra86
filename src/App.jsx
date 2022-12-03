@@ -17,6 +17,7 @@ function App() {
       setLoading(true)
       const response = await api.post("sessions", data);
       localStorage.setItem("@TOKEN", response.data.token)
+      localStorage.setItem("@USERID", response.data.user.id)
       setUser(response.data)
       toast.success("Login relizado com sucesso!");
 
