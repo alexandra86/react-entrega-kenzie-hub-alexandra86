@@ -1,5 +1,4 @@
-
-import {StyledHeader} from "./styles.js"
+import {StyledHeader} from "./styles.js";
 
 export function Header({children}){
 return (

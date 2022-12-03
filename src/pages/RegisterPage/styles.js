@@ -108,7 +108,7 @@ export const StyledRegisterPage = styled.div`
      font-family: 'Inter', sans-serif;
      font-weight: 500;
      font-size:0.75rem;
-     margin-bottom: 0.5rem;
+     margin-bottom: 0.3125rem;
     }
     @media(max-width:43.75rem){
       .logoKenziHub{
@@ -122,4 +122,4 @@ export const StyledRegisterPage = styled.div`
     }
 
   }
-`
+`;
