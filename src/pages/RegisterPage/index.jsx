@@ -1,18 +1,42 @@
-import React from "react";
+import {React, useState} from "react";
 import { Header } from "../../components/Header/index.jsx";
 import {StyledRegisterPage} from "./styles.js";
 import {useForm} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./registerSchema.js";
-import logoKenzieHub from "../../img/Logo.svg"
+import logoKenzieHub from "../../img/Logo.svg";
 import { useNavigate } from "react-router";
+import {api} from "../../services/axiosClient.js";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
+
 
 export function RegisterPage(){
+
+    const [loading, setLoading] = useState(false);
+
 
     const navigate = useNavigate()
     function goLoginClick() {
         navigate("/")
       }
+
+    async function NewRegister(data){
+        try {
+          setLoading(true)
+          const response = await api.post("users", data);
+          toast.success("Cadastro relizado com sucesso!");
+          setTimeout(()=>{
+            navigate("/")
+          }, 5000)
+        } catch (error) {
+          toast.error("Usuário já cadastrado!");
+        } finally {
+          setLoading(false)
+        }
+      };
+
+
 
     const {register, handleSubmit, formState: { errors },reset} = useForm({
             mode: "onBlur",
@@ -22,20 +46,21 @@ export function RegisterPage(){
             password: "", 
             bio: "",  
             contact:"",
-            courseModule:"",
+            course_module:"",
             },
             resolver: yupResolver(registerSchema),
             
         })
    
+
     async function submit(data){
-        console.log(data)
         const information = {...data}
         delete information.passwordConfirm
-        // await NewRegister(information)
+        await NewRegister(information)
         reset()
     }
     return(
+        <>
         <StyledRegisterPage>
 
             <Header>
@@ -48,7 +73,7 @@ export function RegisterPage(){
 
             <p className="messageRegister">Rápido e grátis, vamos nessa!</p>
             
-        <form className="formRegister" onSubmit={handleSubmit(submit)}>
+        <form className="formRegister" onSubmit={handleSubmit(submit)} noValidate>
 
             <label htmlFor="name" className="areaLabel">Nome</label>
             <input type="name" placeholder="Digite seu nome" className="areaInput" {...register("name")}/>
@@ -85,9 +110,26 @@ export function RegisterPage(){
            </select>
            {errors.course_module && <p className="areaError">{errors.course_module.message}</p>}
 
-            <button type="submit" className="btRegister">Cadastrar</button>
+            <button type="submit" className="btRegister" disabled={loading}>
+            {loading ? "Carregando...": "Cadastrar"}
+            </button>
         </form>
         </div>
         </StyledRegisterPage>
+
+        <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        />
+        </>
+
     )
 }

@@ -1,13 +1,14 @@
-import { StyledHomePage } from "./styles.js"
-import logoKenzieHub from "../../img/Logo.svg"
+import { StyledHomePage } from "./styles.js";
+import logoKenzieHub from "../../img/Logo.svg";
 import React from "react";
 import { useNavigate } from "react-router";
 
-export function HomePage(){
+export function HomePage({user}){
 
     const navigate = useNavigate()
     function goLoginClick() {
         navigate("/")
+        user = null;
     }
 
     return(
@@ -19,8 +20,8 @@ export function HomePage(){
 
             <tr />
             <div className="areaUser">
-                <h2 className="areaWelcome">Olá, Samuel Leão</h2>
-                <p className="course">Primeiro módulo (Introdução ao Frontend)</p>
+                <h2 className="areaWelcome">Olá, {user.user.name}</h2>
+                <p className="course">{user.user.course_module}</p>
             </div>
             <tr />
             

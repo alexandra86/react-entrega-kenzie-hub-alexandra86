@@ -90,8 +90,8 @@ export const StyledRegisterPage = styled.div`
      height:3rem; 
      padding: 0rem 1.375rem;
      border-radius:0.25rem;
-     border:0.07625rem solid #59323F;
-     background-color:#59323F;
+     border:0.07625rem solid #FF577F;
+     background-color:#FF577F;
      font-family: 'Inter', sans-serif;
      font-weight: 500;
      font-size:1rem;
