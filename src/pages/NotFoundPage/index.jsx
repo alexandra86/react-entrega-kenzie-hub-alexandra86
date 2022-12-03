@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledNotFound } from "./styles.js";
 import sadEmotion from "../../img/fundo.jpg";
 
-export function NotFound() {
+export function NotFoundPage() {
   const navigate = useNavigate();
   function goLoginClick() {
     navigate("/");

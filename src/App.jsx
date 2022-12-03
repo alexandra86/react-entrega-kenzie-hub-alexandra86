@@ -5,7 +5,7 @@ import { RegisterPage } from "./pages/RegisterPage";
 import { HomePage } from "./pages/HomePage";
 import { toast, ToastContainer } from "react-toastify";
 import { api } from "./services/axiosClient.js";
-import { NotFound } from "./pages/NotFound";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -35,7 +35,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/home" element={<HomePage user={user} />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <ToastContainer
         position="top-right"
