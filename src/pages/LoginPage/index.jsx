@@ -30,11 +30,16 @@ export function LoginPage({ newLogin, loading }) {
   async function submit(data) {
     await newLogin(data);
 
-    setTimeout(() => {
-      navigate("/home");
-    }, 5000);
-
-    reset();
+    if (localStorage.getItem("@TOKEN")) {
+      setTimeout(() => {
+        navigate("/home");
+      }, 5000);
+    } else {
+      setTimeout(() => {
+        navigate("/");
+      }, 5000);
+      reset();
+    }
   }
   return (
     <StyledLoginPage>
