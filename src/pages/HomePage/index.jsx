@@ -2,6 +2,7 @@ import { StyledHomePage } from "./styles.js";
 import logoKenzieHub from "../../img/Logo.svg";
 import React from "react";
 import { useNavigate } from "react-router";
+import { CardTech } from "../../components/CardTech/index.jsx";
 
 export function HomePage({ user }) {
   const navigate = useNavigate();
@@ -31,10 +32,16 @@ export function HomePage({ user }) {
       </div>
 
       <div className="areaInformation">
-        <p className="whatAShame">Que pena! Estamos em desenvolvimento:(</p>
-        <span className="information">
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades
-        </span>
+        <div className="areaTechnology">
+          <h3 className="titleTechnology">Tecnologias</h3>
+          <button type="button" className="btOpenModal">
+            +
+          </button>
+        </div>
+        <ul className="ulCardTech">
+          <CardTech />
+          <CardTech />
+        </ul>
       </div>
     </StyledHomePage>
   );

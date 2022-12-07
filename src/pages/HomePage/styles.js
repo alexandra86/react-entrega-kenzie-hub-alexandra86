@@ -30,15 +30,6 @@ export const StyledHomePage = styled.div`
     justify-content: space-between;
   }
 
-  .areaInformation {
-    max-width: 90rem;
-    width: 60%;
-    height: 7.375rem;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
   .areaWelcome {
     margin-top: 2.8125rem;
     font-family: "Inter", sans-serif;
@@ -56,22 +47,41 @@ export const StyledHomePage = styled.div`
   }
 
   .areaInformation {
+    max-width: 90rem;
+    width: 60%;
+    height: 7.375rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
     margin-top: 2.3125rem;
     gap: 1.4375rem;
   }
 
-  .whatAShame {
+  .areaTechnology {
+    max-width: 90rem;
+    width: 100%;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .titleTechnology {
     font-family: "Inter", sans-serif;
-    font-weight: 700;
-    font-size: 1.125rem;
+    font-weight: 600;
+    font-size: 1rem;
     color: #f8f9fa;
   }
 
-  .information {
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 1rem;
-    color: #ffffff;
+  .ulCardTech {
+    max-width: 90rem;
+    width: 100%;
+    background-color: #212529;
+    border-radius: 0.25rem;
+    padding: 1.4375rem 1.625rem 1.4375rem 1.375rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .btComeBackLogin {
@@ -93,11 +103,27 @@ export const StyledHomePage = styled.div`
     background-color: #343b41;
   }
 
+  .btOpenModal {
+    max-width: 2.030625rem;
+    width: 100%;
+    height: 2rem;
+    background-color: #212529;
+    font-size: 0.67rem;
+    padding: 0.625rem 0.625rem;
+    color: #ffffff;
+  }
+
   @media (max-width: 56.25rem) {
     .areaUser {
       display: flex;
       align-items: center;
       width: 60%;
+    }
+    .areaTechnology {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: 100%;
     }
   }
 
@@ -132,5 +158,7 @@ export const StyledHomePage = styled.div`
       width: 80%;
       line-height: 1.75rem;
     }
+    .ulCardTech {
+      padding:0.625rem 0.3125rem;
   }
 `;
