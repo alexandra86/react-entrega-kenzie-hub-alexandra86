@@ -1,4 +1,4 @@
-import { StyleCardTech } from "./styles";
+import { StyleCardTech } from "./styles.js";
 
 export function CardTech() {
   return (

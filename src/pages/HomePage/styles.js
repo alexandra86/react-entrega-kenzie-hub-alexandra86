@@ -159,6 +159,7 @@ export const StyledHomePage = styled.div`
       line-height: 1.75rem;
     }
     .ulCardTech {
-      padding:0.625rem 0.3125rem;
+      padding: 0.625rem 0.3125rem;
+    }
   }
 `;
