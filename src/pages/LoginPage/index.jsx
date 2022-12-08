@@ -1,12 +1,15 @@
-import { React } from "react";
+import { React, useContext } from "react";
 import logoKenzieHub from "../../img/Logo.svg";
 import { StyledLoginPage } from "./styles.js";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "./loginSchema.js";
 import { useNavigate } from "react-router";
+import { AuthContext } from "../../contexts/AuthContext";
+import "react-toastify/dist/ReactToastify.css";
 
-export function LoginPage({ newLogin, loading }) {
+export function LoginPage() {
+  const { NewLogin, loading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   function goRegisterClick() {
@@ -28,7 +31,7 @@ export function LoginPage({ newLogin, loading }) {
   });
 
   async function submit(data) {
-    await newLogin(data);
+    await NewLogin(data);
 
     if (localStorage.getItem("@TOKEN")) {
       setTimeout(() => {

@@ -3,10 +3,18 @@ import logoKenzieHub from "../../img/Logo.svg";
 import React from "react";
 import { useNavigate } from "react-router";
 import { CardTech } from "../../components/CardTech/index.jsx";
+import { AuthContext } from "../../contexts/AuthContext.jsx";
+import { useContext } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { AddTechnologyModal } from "../../components/AddTechnologyModal/index.jsx";
+import { TechnologyContext } from "../../contexts/TechnologyContext.jsx";
 
-export function HomePage({ user }) {
+export function HomePage() {
+  const { user } = useContext(AuthContext);
+  const { modalIsOpen, handleModal } = useContext(TechnologyContext);
   const navigate = useNavigate();
-  function goLoginClick() {
+
+  function goLoginClick({ user }) {
     navigate("/");
     user = null;
     localStorage.removeItem("@TOKEN");
@@ -34,7 +42,11 @@ export function HomePage({ user }) {
       <div className="areaInformation">
         <div className="areaTechnology">
           <h3 className="titleTechnology">Tecnologias</h3>
-          <button type="button" className="btOpenModal">
+          <button
+            type="button"
+            className="btOpenModal"
+            onClick={() => handleModal()}
+          >
             +
           </button>
         </div>
@@ -43,6 +55,7 @@ export function HomePage({ user }) {
           <CardTech />
         </ul>
       </div>
+      {modalIsOpen && <AddTechnologyModal />}
     </StyledHomePage>
   );
 }
