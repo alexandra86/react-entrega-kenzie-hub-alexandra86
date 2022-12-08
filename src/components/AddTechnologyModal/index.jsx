@@ -3,14 +3,13 @@ import { React, useContext } from "react";
 import { StyledContainerModal } from "./style.js";
 import { TechnologyContext } from "../../contexts/TechnologyContext.jsx";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
 // import { useNavigate } from "react-router-dom";
 Modal.setAppElement("#root");
 
 export function AddTechnologyModal() {
   const { modalIsOpen, handleModal, RegisterTechnology } =
     useContext(TechnologyContext);
-  // const navigate = useNavigate();
 
   const { register, handleSubmit, reset } = useForm({
     mode: "onBlur",
@@ -18,7 +17,7 @@ export function AddTechnologyModal() {
       title: "",
       status: "",
     },
-    resolver: yupResolver(),
+    // resolver: yupResolver(),
   });
 
   async function submit(data) {
@@ -45,7 +44,8 @@ export function AddTechnologyModal() {
             Nome
           </label>
           <input
-            type="title"
+            type="text"
+            name="title"
             placeholder="Nome da tecnologia"
             className="inputModal"
             {...register("title")}
@@ -60,9 +60,9 @@ export function AddTechnologyModal() {
             {...register("status")}
           >
             <option value="">Selecione</option>
-            <option value="iniciante">Iniciante</option>
-            <option value="intermediário">Intermediário</option>
-            <option value="avançado">Avançado</option>
+            <option value="Iniciante">Iniciante</option>
+            <option value="Intermediário">Intermediário</option>
+            <option value="Avançado">Avançado</option>
           </select>
           <button type="submit" className="btRegisterModal">
             Cadastrar Tecnologia

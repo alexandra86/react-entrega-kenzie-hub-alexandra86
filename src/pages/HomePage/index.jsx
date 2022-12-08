@@ -1,7 +1,7 @@
 import { StyledHomePage } from "./styles.js";
 import logoKenzieHub from "../../img/Logo.svg";
 import React from "react";
-import { useNavigate } from "react-router";
+import { Navigate, useNavigate } from "react-router";
 import { CardTech } from "../../components/CardTech/index.jsx";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 import { useContext } from "react";
@@ -10,9 +10,13 @@ import { AddTechnologyModal } from "../../components/AddTechnologyModal/index.js
 import { TechnologyContext } from "../../contexts/TechnologyContext.jsx";
 
 export function HomePage() {
-  const { user } = useContext(AuthContext);
+  const { user, newLoading } = useContext(AuthContext);
   const { modalIsOpen, handleModal } = useContext(TechnologyContext);
   const navigate = useNavigate();
+
+  if (newLoading) {
+    return null;
+  }
 
   function goLoginClick({ user }) {
     navigate("/");
@@ -21,7 +25,7 @@ export function HomePage() {
     localStorage.removeItem("@USERID");
   }
 
-  return (
+  return user ? (
     <StyledHomePage>
       <header className="headerHome">
         <img
@@ -35,8 +39,8 @@ export function HomePage() {
       </header>
 
       <div className="areaUser">
-        <h2 className="areaWelcome">Olá, {user.user.name}</h2>
-        <p className="course">{user.user.course_module}</p>
+        <h2 className="areaWelcome">Olá, {user.name}</h2>
+        <p className="course">{user.course_module}</p>
       </div>
 
       <div className="areaInformation">
@@ -57,5 +61,7 @@ export function HomePage() {
       </div>
       {modalIsOpen && <AddTechnologyModal />}
     </StyledHomePage>
+  ) : (
+    <Navigate to={"/"} />
   );
 }
