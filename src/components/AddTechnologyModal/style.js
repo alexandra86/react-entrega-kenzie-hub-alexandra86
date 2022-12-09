@@ -55,7 +55,7 @@ export const StyledContainerModal = styled.div`
     background-color: #212529;
     display: flex;
     flex-direction: column;
-    gap: 1.395625rem;
+    gap: 0.8125rem;
   }
   .labelModal {
     font-family: "Inter", sans-serif;
@@ -91,6 +91,12 @@ export const StyledContainerModal = styled.div`
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 1.015rem;
+  }
+  .areaError {
+    color: red;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 0.75rem;
   }
   .btRegisterModal {
     max-width: 20.25rem;

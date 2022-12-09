@@ -12,35 +12,34 @@ export function AuthProvider({ children }) {
   const [newLoading, setNewLoading] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function getUser() {
-      const tokenValidate = localStorage.getItem("@TOKEN");
+  async function getUser() {
+    const tokenValidate = localStorage.getItem("@TOKEN");
 
-      if (!tokenValidate) {
-        setNewLoading(false);
-        return;
-      }
-
-      try {
-        const response = await api.get("profile", {
-          headers: {
-            authorization: `Bearer ${tokenValidate}`,
-          },
-        });
-        setUser(response.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setNewLoading(false);
-      }
+    if (!tokenValidate) {
+      setNewLoading(false);
+      return;
     }
+    api.defaults.headers.common["Authorization"] = `Bearer ${tokenValidate}`;
+
+    try {
+      const response = await api.get("/profile");
+
+      setUser(response.data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setNewLoading(false);
+    }
+  }
+
+  useEffect(() => {
     getUser();
   }, []);
 
   async function NewRegister(data) {
     try {
       setLoading(true);
-      const response = await api.post("users", data);
+      const response = await api.post("/users", data);
       toast.success("Cadastro relizado com sucesso!");
       setTimeout(() => {
         navigate("/");
@@ -55,12 +54,16 @@ export function AuthProvider({ children }) {
   async function NewLogin(data) {
     try {
       setLoading(true);
-      const response = await api.post("sessions", data);
+      const response = await api.post("/sessions", data);
       localStorage.setItem("@TOKENUSER", response.data.token);
       const { token, user: userResponse } = response.data;
       setUser(userResponse);
       localStorage.setItem("@TOKEN", token);
       toast.success("Login relizado com sucesso!");
+
+      api.defaults.headers.common[
+        "Authorization"
+      ] = `Bearer ${response.data.token}`;
 
       setTimeout(() => {
         navigate("/home");
@@ -82,6 +85,7 @@ export function AuthProvider({ children }) {
         newLoading,
         setNewLoading,
         toast,
+        getUser,
       }}
     >
       {children}

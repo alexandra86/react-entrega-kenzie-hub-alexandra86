@@ -11,7 +11,7 @@ import { TechnologyContext } from "../../contexts/TechnologyContext.jsx";
 
 export function HomePage() {
   const { user, newLoading } = useContext(AuthContext);
-  const { modalIsOpen, handleModal } = useContext(TechnologyContext);
+  const { modalIsOpen, handleModal, techs } = useContext(TechnologyContext);
   const navigate = useNavigate();
 
   if (newLoading) {
@@ -55,8 +55,9 @@ export function HomePage() {
           </button>
         </div>
         <ul className="ulCardTech">
-          <CardTech />
-          <CardTech />
+          {techs.map((elem, index) => (
+            <CardTech key={index} elem={elem} />
+          ))}
         </ul>
       </div>
       {modalIsOpen && <AddTechnologyModal />}

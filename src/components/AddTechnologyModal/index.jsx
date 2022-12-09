@@ -3,21 +3,26 @@ import { React, useContext } from "react";
 import { StyledContainerModal } from "./style.js";
 import { TechnologyContext } from "../../contexts/TechnologyContext.jsx";
 import { useForm } from "react-hook-form";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import { useNavigate } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { modalSchema } from "./modalSchema.js";
 Modal.setAppElement("#root");
 
 export function AddTechnologyModal() {
   const { modalIsOpen, handleModal, RegisterTechnology } =
     useContext(TechnologyContext);
 
-  const { register, handleSubmit, reset } = useForm({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
     mode: "onBlur",
     defaultValues: {
       title: "",
       status: "",
     },
-    // resolver: yupResolver(),
+    resolver: yupResolver(modalSchema),
   });
 
   async function submit(data) {
@@ -50,6 +55,7 @@ export function AddTechnologyModal() {
             className="inputModal"
             {...register("title")}
           />
+          {errors.title && <p className="areaError">{errors.title.message}</p>}
           <label htmlFor="status" className="labelModal">
             Selecionar Status
           </label>
@@ -64,6 +70,9 @@ export function AddTechnologyModal() {
             <option value="Intermediário">Intermediário</option>
             <option value="Avançado">Avançado</option>
           </select>
+          {errors.status && (
+            <p className="areaError">{errors.status.message}</p>
+          )}
           <button type="submit" className="btRegisterModal">
             Cadastrar Tecnologia
           </button>
