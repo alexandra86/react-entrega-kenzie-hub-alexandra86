@@ -46,7 +46,7 @@ export function TechnologyProvider({ children }) {
       getUser();
 
       setIsEditOpen(false);
-      toast.success("Sucesso! Tecnologia cadastrada!");
+      toast.success("Tecnologia alterada com sucesso!");
     } catch (error) {
       toast.error("Algo não está certo!");
     } finally {
