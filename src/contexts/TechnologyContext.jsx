@@ -12,6 +12,11 @@ export function TechnologyProvider({ children }) {
   const { user, getUser } = useContext(AuthContext);
 
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const [modalIsEditOpen, setIsEditOpen] = useState(false);
+
+  const [selectTech, setSelectTech] = useState(null);
+
   const [loading, setLoading] = useState(false);
 
   const techs = user?.techs;
@@ -20,9 +25,27 @@ export function TechnologyProvider({ children }) {
     try {
       setLoading(true);
 
-      const response = await api.post("/users/techs", data);
+      await api.post("/users/techs", data);
       getUser();
 
+      setIsOpen(false);
+
+      toast.success("Sucesso! Tecnologia cadastrada!");
+    } catch (error) {
+      toast.error("Algo não está certo!");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function EditTechnology(data) {
+    try {
+      setLoading(true);
+
+      await api.put(`/users/techs/${data.id}`, data);
+      getUser();
+
+      setIsEditOpen(false);
       toast.success("Sucesso! Tecnologia cadastrada!");
     } catch (error) {
       toast.error("Algo não está certo!");
@@ -33,6 +56,25 @@ export function TechnologyProvider({ children }) {
 
   function handleModal() {
     setIsOpen(!modalIsOpen);
+  }
+
+  function handleEditModal() {
+    setIsEditOpen(!modalIsEditOpen);
+  }
+
+  async function removeTechnology(id) {
+    try {
+      setLoading(true);
+
+      await api.delete(`/users/techs/${id}`);
+      getUser();
+
+      toast.info("Tecnologia removida com sucesso!");
+    } catch (error) {
+      toast.error("Algo não está certo!");
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -46,6 +88,13 @@ export function TechnologyProvider({ children }) {
         loading,
         user,
         techs,
+        EditTechnology,
+        modalIsEditOpen,
+        setIsEditOpen,
+        handleEditModal,
+        selectTech,
+        setSelectTech,
+        removeTechnology,
       }}
     >
       {children}

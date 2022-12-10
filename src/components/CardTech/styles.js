@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import trash from "../../img/trash.svg";
+import lapis from "../../img/lapisRoxo.png";
 
 export const StyleCardTech = styled.li`
   max-width: 90rem;
@@ -33,6 +34,19 @@ export const StyleCardTech = styled.li`
     background-image: url(${trash});
     width: 1.234375rem;
     height: 1rem;
+  }
+  .btDelete:hover {
+    -webkit-transform: scale(1.5);
+    -webkit-transition: scale(1.5);
+  }
+  .btEdit {
+    background-image: url(${lapis});
+    width: 2rem;
+    height: 1.875rem;
+  }
+  .btEdit:hover {
+    -webkit-transform: scale(1.3);
+    -webkit-transition: scale(1.3);
   }
   @media (max-width: 43.75rem) {
     padding: 0.625rem 0.3125rem;

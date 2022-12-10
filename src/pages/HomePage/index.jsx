@@ -55,8 +55,8 @@ export function HomePage() {
           </button>
         </div>
         <ul className="ulCardTech">
-          {techs.map((elem, index) => (
-            <CardTech key={index} elem={elem} />
+          {techs.map((elem) => (
+            <CardTech key={elem.id} elem={elem} />
           ))}
         </ul>
       </div>
