@@ -14,7 +14,6 @@ export const StyledContainerModal = styled.div`
   .modalContent {
     max-width: 23.0625rem;
     width: 100%;
-    height: 21.375rem;
     border-radius: 0.25rem;
     background-color: #343b41;
   }
@@ -50,12 +49,12 @@ export const StyledContainerModal = styled.div`
   .formModal {
     max-width: 23.0625rem;
     width: 100%;
-    height: 18.25rem;
     padding: 0.75rem 1.25rem;
     background-color: #212529;
     display: flex;
     flex-direction: column;
     gap: 0.8125rem;
+    border-radius: 0rem 0rem 0.25rem 0.25rem;
   }
   .labelModal {
     font-family: "Inter", sans-serif;
@@ -99,6 +98,7 @@ export const StyledContainerModal = styled.div`
     font-size: 0.75rem;
   }
   .btRegisterModal {
+    margin-bottom: 0.625rem;
     max-width: 20.25rem;
     width: 100%;
     height: 3rem;

@@ -8,8 +8,13 @@ import { modalEditSchema } from "./modalEditSchema.js";
 Modal.setAppElement("#root");
 
 export function EditTechnologyModal() {
-  const { modalIsEditOpen, handleEditModal, EditTechnology, selectTech } =
-    useContext(TechnologyContext);
+  const {
+    modalIsEditOpen,
+    handleEditModal,
+    EditTechnology,
+    selectTech,
+    loading,
+  } = useContext(TechnologyContext);
 
   const {
     register,
@@ -73,8 +78,8 @@ export function EditTechnologyModal() {
           {errors.status && (
             <p className="areaError">{errors.status.message}</p>
           )}
-          <button type="submit" className="btRegisterModal">
-            Editar Tecnologia
+          <button type="submit" className="btEditModal" disabled={loading}>
+            {loading ? "Editando..." : "Editar Tecnologia"}
           </button>
         </form>
       </div>

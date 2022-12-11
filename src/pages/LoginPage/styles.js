@@ -21,7 +21,6 @@ export const StyledLoginPage = styled.div`
      max-width: 23.0625rem;
      width:60%;
      padding:2.625rem 1.375rem;
-     height: 34.375rem;  
      display:flex;
      flex-direction:column;
      align-items: center;

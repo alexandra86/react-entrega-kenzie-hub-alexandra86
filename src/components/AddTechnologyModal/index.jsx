@@ -8,7 +8,7 @@ import { modalSchema } from "./modalSchema.js";
 Modal.setAppElement("#root");
 
 export function AddTechnologyModal() {
-  const { modalIsOpen, handleModal, RegisterTechnology } =
+  const { modalIsOpen, handleModal, RegisterTechnology, loading } =
     useContext(TechnologyContext);
 
   const {
@@ -73,8 +73,8 @@ export function AddTechnologyModal() {
           {errors.status && (
             <p className="areaError">{errors.status.message}</p>
           )}
-          <button type="submit" className="btRegisterModal">
-            Cadastrar Tecnologia
+          <button type="submit" className="btRegisterModal" disabled={loading}>
+            {loading ? "Cadastrando..." : "Cadastrar Tecnologia"}
           </button>
         </form>
       </div>
