@@ -59,6 +59,7 @@ export function EditTechnologyModal() {
             placeholder="Nome da tecnologia"
             className="inputModal"
             {...register("title")}
+            disabled
           />
           {errors.title && <p className="areaError">{errors.title.message}</p>}
           <label htmlFor="status" className="labelModal">
