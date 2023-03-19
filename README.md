@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+<h1 align="center" font-family="pattaya">Kenzie Hub</h1><br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h2 font-family="pattaya">Tecnologias utilizadas</h2>
+<div style="display: inline_block"><br>
+<img align="center" alt="Alexandra-HTML" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+<img align="center" alt="Alexandra-CSS" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+<img align="center" alt="Alexandra-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+<img align="center" alt="Alexandra-React" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+</div><br>
 
-## Available Scripts
+<h2 font-family="pattaya">Descrição</h2><br>
+<p font-family="robotto" font-size="16px" line-height="34px" align="justify">
+O projeto representa uma aplicação de plataforma de cursos, contendo páginas de registro, login e dasbord do usuário logado. Possui restrições de segurança, aonde o usuário não logado, não consegue se manter conectado a dashbord. Ao realizar o login, é criado um token para este mesmo usuário logado e sendo bem sucedida a requisição o mesmo é redirecionado à sua dashbord e informado através de um toastfy e, senão, o mesmo permanece na área de login, onde ele é informado através de um toastfy de que houve algum problema com seu login. Na dashbord de usuário logado, é possível cadastrar tecnologias e seus níveis de aprendizado, através de um modal de cadastro. Também, através do modal de editar a tecnologia cadastrada, é possível editá-la ou excluí-la. Na página de registro, o usuário cria o seu registro e caso não siga as obrigações informadas nos campos, o mesmo não consegue finalizar o seu cadastro. Caso o usuário já tenha realizado o seu cadastro, ele é informado através de um toastfy, de que seu registro já existe na aplicação e caso não haja, seu cadastro é criado e usuário avisado através de um toastfy. E logo após redirecionado para a página de login.
+</p><br>
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2 font-family="pattaya">Libs utilizadas</h2><br>
+<ul style="display: inline_block">
+<li font-family="robotto" font-size="16px">axios</li>
+<li font-family="robotto" font-size="16px">react</li>
+<li font-family="robotto" font-size="16px">react-dom</li>
+<li font-family="robotto" font-size="16px">react-hook-form</li>
+<li font-family="robotto" font-size="16px">react-icons</li>
+<li font-family="robotto" font-size="16px">react-modal</li>
+<li font-family="robotto" font-size="16px">react-router-dom</li>
+<li font-family="robotto" font-size="16px">react-scripts</li>
+<li font-family="robotto" font-size="16px">react-toastify</li>
+<li font-family="robotto" font-size="16px">styled-components</li>
+<li font-family="robotto" font-size="16px">web-vitals</li>
+<li font-family="robotto" font-size="16px">yup</li>
+</ul>
